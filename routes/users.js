@@ -19,6 +19,7 @@ router.post("/signup", (req, res) => {
       const hash = bcrypt.hashSync(req.body.password, 10);
 
       const newUser = new User({
+        firstname: req.body.firstname,
         username: req.body.username,
         password: hash,
         token: uid2(32),
@@ -36,7 +37,7 @@ router.post("/signup", (req, res) => {
 });
 
 router.post("/signin", (req, res) => {
-  if (!checkBody(req.body, ["username", "password"])) {
+  if (!checkBody(req.body, ["username", "firstname", "password"])) {
     res.json({ result: false, error: "Missing or empty fields" });
     return;
   }
