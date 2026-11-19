@@ -12,6 +12,7 @@ var usersRouter = require("./routes/users");
 var app = express();
 
 const cors = require("cors");
+const tweetsRouter = require('./routes/tweets'); // ajout
 app.use(cors());
 
 app.use(logger("dev"));
@@ -22,5 +23,6 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
+app.use('/tweets', tweetsRouter); // ajout
 
 module.exports = app;
