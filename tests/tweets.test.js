@@ -46,7 +46,7 @@ describe('GET /tweets', () => {
 
     expect(res.status).toBe(200);
     expect(res.body).toEqual({ result: true, tweets });
-    expect(populate).toHaveBeenCalledWith('author', 'firstname username');
+    expect(populate).toHaveBeenCalledWith('author', 'firstname username avatar');
     expect(sort).toHaveBeenCalledWith({ createdAt: -1 });
   });
 

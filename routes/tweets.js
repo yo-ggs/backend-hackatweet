@@ -12,7 +12,7 @@ const User = require('../models/users');
 router.get('/', async (req, res) => {
   try {
     const tweets = await Tweet.find()
-  .populate('author', 'firstname username')
+  .populate('author', 'firstname username avatar')
   .sort({ createdAt: -1 });
 
     res.json({
